@@ -1,0 +1,75 @@
+local player = game.Players.LocalPlayer
+local ScreenGui = Instance.new("ScreenGui")
+local EscapeFrame = Instance.new("Frame")
+local TitleLabel = Instance.new("TextLabel")
+local NormalEscapeButton = Instance.new("TextButton")
+local AdvancedEscapeButton = Instance.new("TextButton")
+
+ScreenGui.Parent = player:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+EscapeFrame.Size = UDim2.new(0, 300, 0, 200)
+EscapeFrame.Position = UDim2.new(0.5, -150, -0.3, 0)
+EscapeFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+EscapeFrame.BackgroundTransparency = 0.2
+EscapeFrame.BorderSizePixel = 0
+EscapeFrame.Parent = ScreenGui
+
+TitleLabel.Size = UDim2.new(1, 0, 0.3, 0)
+TitleLabel.Position = UDim2.new(0, 0, 0, 0)
+TitleLabel.BackgroundTransparency = 1
+TitleLabel.Text = "🌈Shader menu✨"
+TitleLabel.TextColor3 = Color3.fromRGB(255, 69, 0)
+TitleLabel.Font = Enum.Font.SourceSansBold
+TitleLabel.TextSize = 24
+TitleLabel.Parent = EscapeFrame
+
+NormalEscapeButton.Size = UDim2.new(0.8, 0, 0.25, 0)
+NormalEscapeButton.Position = UDim2.new(0.1, 0, 0.4, 0)
+NormalEscapeButton.BackgroundColor3 = Color3.fromRGB(169, 169, 169)
+NormalEscapeButton.Text = "No shader"
+NormalEscapeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+NormalEscapeButton.Font = Enum.Font.SourceSansBold
+NormalEscapeButton.TextSize = 18
+NormalEscapeButton.Parent = EscapeFrame
+
+AdvancedEscapeButton.Size = UDim2.new(0.8, 0, 0.25, 0)
+AdvancedEscapeButton.Position = UDim2.new(0.1, 0, 0.7, 0)
+AdvancedEscapeButton.BackgroundColor3 = Color3.fromRGB(255, 182, 193)
+AdvancedEscapeButton.Text = "App shader"
+AdvancedEscapeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+AdvancedEscapeButton.Font = Enum.Font.SourceSansBold
+AdvancedEscapeButton.TextSize = 18
+AdvancedEscapeButton.Parent = EscapeFrame
+
+local function showMenu()
+    EscapeFrame:TweenPosition(UDim2.new(0.5, -150, 0.3, 0), "Out", "Quad", 0.5, true)
+end
+
+local function hideMenu()
+    EscapeFrame:TweenPosition(UDim2.new(0.5, -150, -0.3, 0), "Out", "Quad", 0.5, true, function()
+        ScreenGui:Destroy()
+    end)
+end
+
+showMenu()
+
+NormalEscapeButton.MouseButton1Click:Connect(function()
+    hideMenu()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "No shader";
+        Text = "No shaders enabled";
+        Duration = 5;
+    })
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/ESCAPE_up_normal/refs/heads/main/ESCAPE_up_normal"))()
+end)
+
+AdvancedEscapeButton.MouseButton1Click:Connect(function()
+    hideMenu()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Shader Mode Selected ";
+        Text = "Shaders applied✨";
+        Duration = 5;
+    })
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/SHADER_ESCAPE/refs/heads/main/SHADER_ESCAPE"))()
+end)
