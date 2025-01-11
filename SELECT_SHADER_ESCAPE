@@ -61,7 +61,7 @@ NormalEscapeButton.MouseButton1Click:Connect(function()
         Text = "No shaders enabled";
         Duration = 5;
     })
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/ESCAPE_up_normal/refs/heads/main/ESCAPE_up_normal"))()
+    loadstring(game:HttpGet("_"))()
 end)
 
 AdvancedEscapeButton.MouseButton1Click:Connect(function()
@@ -71,5 +71,5 @@ AdvancedEscapeButton.MouseButton1Click:Connect(function()
         Text = "Shaders applied✨";
         Duration = 5;
     })
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/SHADER_ESCAPE/refs/heads/main/SHADER_ESCAPE"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/SHADER/refs/heads/main/SHADER"))()
 end)
